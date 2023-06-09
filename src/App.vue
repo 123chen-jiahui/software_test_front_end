@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+     
+    <MainPart/>
+    <LeftPart/>
+    <HeadPart/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MainPart from './components/MainPart.vue'
+import LeftPart from './components/LeftPart.vue'
+import HeadPart from './components/HeadPart.vue' 
+import Vue from 'vue';
+const eventBus = new Vue();
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainPart,
+    LeftPart,
+    HeadPart
+  },
+  data(){
+    return{
+      eventBus,
+    }
   }
 }
 </script>
@@ -20,9 +32,12 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  -moz-osx-font-smoothing: grayscale;  
   color: #2c3e50;
   margin-top: 60px;
 }
 </style>
+
+
+
+
