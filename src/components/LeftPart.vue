@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
       <div>
-        <ul id="txt" :class="{ 'active': activeIndex === index }" @click="handleItemClick(index,item)" v-for=" ( item,index) in items" :key="index">{{ item }}</ul>
+       <ul class="txt" :class="{ 'active': activeIndex === index }" @click="handleItemClick(index,item)" v-for=" ( item,index) in items" :key="index">{{ item }}</ul>
       </div>
     </div>
   </template>
@@ -35,11 +35,23 @@
         .then(response => {
           this.items_string = response.data
           this.items = this.items_string.split(" ")
+          //添加单元测试，集成测试，系统测试
+          console.log(this.items)
+          this.items.push("unit_test")
+          this.items.push("integration_test")
+          this.items.push("system_test")
           console.log(this.items)
         })
         .catch(error => {
           console.log(error)
         })
+      
+      //test
+      console.log(this.items)
+      this.items.push("unit_test")
+      this.items.push("integration_test")
+      this.items.push("system_test")
+      console.log(this.items)
     }
   }
   </script>
@@ -53,7 +65,7 @@
     top:62px;
     min-height: 100vh; /* 设置最小高度为100vh，即视口高度 */
   }
-  .sidebar #txt{
+  .sidebar .txt{
     color: #fff;
     font-weight: 800;
     margin-left:0px;

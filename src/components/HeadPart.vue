@@ -50,9 +50,16 @@ export default {
             let result = this.testname.substring(0, dotIndex);
             console.log("==result==")
             console.log(result)
+            let url='http://localhost:8888/exec'
+            if(this.testname=='unit_test'||this.testname=='integration_test'||this.testname=='system_test'){
+                url="http://localhost:8888/execBackend"
+                result=this.testname
+            }
+            console.log("==url==")
+            console.log(url)
             axios({
                 method: 'post',
-                url: 'http://localhost:8888/exec',
+                url: url,
                 params: {
                     test: result
                 }
